@@ -17,7 +17,7 @@
                     {% for tag in note.tags.all %}
                     <a href="{% url 'catagory' tag.slug %}" class="btn btn-outline-secondary rounded-pill me-2 p-1 px-3">{{ tag }}</a>
                     {% endfor %}               
-                    <p class="card-text mt-3">{{ note.content|truncatechars:120 }}</p>
+                    <p class="card-text mt-3">{{ note.content|truncatechars:120|safe }}</p>
                   </div>
                 </div>
               </div>

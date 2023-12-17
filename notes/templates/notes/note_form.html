@@ -10,8 +10,9 @@
 				{% csrf_token %}
 				<fieldset class="form-group">
 					<legend class="botder-bottom mb-4">Create Note</legend>
+					{{ form.media }}
 					{{ form.as_p }}
-					 
+
 
 				</fieldset>
 				<div class="form-group">

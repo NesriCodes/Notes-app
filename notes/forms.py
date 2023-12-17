@@ -1,18 +1,11 @@
 from django import forms
-# from django.contrib.auth.models import 
 from .models import Note, Tag
-# from taggit.models import TagField
+from ckeditor.widgets import CKEditorWidget
 
 
 
 class CreateNote(forms.ModelForm):
-# 	tags = forms.ModelMultipleChoiceField(
-  #     queryset=Tag.objects.all(),
-  #     widget=forms.CheckboxSelectMultiple
-
-
-  # )
-
+	content = forms.CharField(widget=CKEditorWidget())
 	class Meta:
 		model = Note
 		fields = ['title', 'content', 'tags']

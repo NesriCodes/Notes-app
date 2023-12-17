@@ -43,7 +43,17 @@ INSTALLED_APPS = [
     "crispy_forms",
     "crispy_bootstrap4",
     "taggit",
+    "ckeditor",
+    "ckeditor_uploader"
 ]
+
+CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_CONFIGS =  {
+    'default':{
+    'toolbar':'Full'
+    }
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -135,6 +145,8 @@ CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 
 LOGIN_URL = 'guest-home'
+
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
