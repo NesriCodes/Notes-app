@@ -1,0 +1,27 @@
+{% extends 'notes/base.html' %}
+{% block title %}Home{% endblock title %}
+{% block content %}
+
+<main class="container">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+		<div class="content-section mt-5">
+			<form method="post">
+				{% csrf_token %}
+				<fieldset class="form-group">
+					<legend class="botder-bottom mb-4">Create Note</legend>
+					{{ form.as_p }}
+					 
+
+				</fieldset>
+				<div class="form-group">
+					<button class="btn btn-outline-info" type="submit">Create</button> 
+				</div>
+			</form>
+		</div>
+	  </div>
+	</div>
+</main>
+
+
+{% endblock %}

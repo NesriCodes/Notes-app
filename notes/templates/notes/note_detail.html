@@ -1,0 +1,30 @@
+{% extends 'notes/base.html' %}
+{% block title %}Home{% endblock title %}
+{% block content %}
+<main class="container">
+    <div class="row">
+      <div class="col-md-10 offset-md-1">
+        <ul class="list-group m-5" >
+            <li class="list-group-item p-5">
+              <div class="d-flex justify-content-between">
+                <h1 class="display-5 bold text-center"><b>{{ note.title }}</b></h1>
+
+                <div>
+
+                  <a class="btn btn-outline-secondary" href="{% url 'notes-update' note.id%}">Update</a>
+                  <a class="btn btn-outline-danger" href="{% url 'notes-delete' note.id%}">Delete</a>
+                </div>
+              </div>
+              {% for tag in note.tags.all %}
+              <a href="{% url 'catagory' tag.slug %}" class="border border-1 rounded-pill me-2 p-1 px-3">{{ tag }}</a>
+              {% endfor %}      
+                <br>
+                <br>
+                <p>{{ note.content }}</p>
+            </li>
+        </ul>
+      </div>
+    </div>
+</main>
+   
+{% endblock %}

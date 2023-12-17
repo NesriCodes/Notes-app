@@ -1,0 +1,31 @@
+{% extends 'notes/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}Home{% endblock title %}
+{% block content %}
+<div role="main" class="container">
+  <div class="row">
+	<div class="col-md-8 offset-md-2">
+		<div class="content-section m-5">
+			<form method="post">
+				{% csrf_token %}
+				<fieldset class="form-group">
+					<legend class="botder-bottom mb-4">Sign up</legend>
+					{{ form|crispy }}
+				</fieldset>
+				<div class="form-group">
+					<button class="btn btn-outline-info" type="submit">Sign up</button> 
+				</div>
+			</form>
+			<br>
+			<div class="border-top pt-3">
+				<small class="text-muted">Already have an account?
+					<a class="ml-2" href="{% url 'login' %}">Sign in</a>
+				</small>
+			</div>
+		</div>
+	</div>
+  </div>
+</div>
+{% endblock %}

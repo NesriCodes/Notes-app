@@ -1,0 +1,27 @@
+{% extends 'notes/base.html' %}
+{% block title %}Home{% endblock title %}
+{% block content %}
+<main class="container">
+  <div class="row">
+    <div class="col-md-10 offset-md-1">
+      <div class="content-section mt-5">
+{% for note in object_list %}
+    <div class="col-11">
+      <div class="card m-4">
+        <div class="card-body m-1">
+          <a href="{% url 'notes-detail' note.id%}"> <h3 class="card-title mb-3">{{ note.title }}</h3>
+          </a>  
+                     
+          <p class="card-text mt-3">{{ note.content|truncatechars:120 }}</p>
+        </div>
+      </div>
+    </div>
+  {% endfor %}   
+
+
+  </div>
+    </div>
+  </div>
+</main>
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'notes/base.html' %}
+{% block title %}Home{% endblock title %}
+{% block content %}
+
+  <main class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="content-section mt-5">
+
+          {% if has_notes %}
+            {% for note in object_list %}
+                <div class="card m-3">
+                  <div class="card-body m-1">
+                    <div class="card-text">
+                    <a class="text-dark" href="{% url 'notes-detail' note.id%}"> <h3 class="card-title mb-3">{{ note.title }}</h3>
+                    </a>  
+                    {% for tag in note.tags.all %}
+                    <a href="{% url 'catagory' tag.slug %}" class="btn btn-outline-secondary rounded-pill me-2 p-1 px-3">{{ tag }}</a>
+                    {% endfor %}               
+                    <p class="card-text mt-3">{{ note.content|truncatechars:120 }}</p>
+                  </div>
+                </div>
+              </div>
+             
+               
+            {% endfor %}   
+          {% else %}
+          <h2 class="text-muted">You don't have any notes yet.</h2>
+          <a class="text-muted mt-5 " href="{% url 'notes-create' %}">Create your first note</a>
+          {% endif %}
+        </div>
+      </div>
+
+    
+      
+    </div>
+  </main>
+  {% endblock %}
